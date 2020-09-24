@@ -2,7 +2,9 @@ on: [push]
 
 jobs:
   build_docs_job:
-    if: (github.ref == 'refs/heads/master') || (github.ref == 'refs/heads/dev') || (github.ref == 'refs/heads/themed')
+    if: |
+        (${{ github.repository }} == 'DavidLeoni/jupman') \  # put here your repo name  
+        && ((github.ref == 'refs/heads/master') || (github.ref == 'refs/heads/dev'))       
     runs-on: ubuntu-latest
     name: Build docs    
     steps:   
